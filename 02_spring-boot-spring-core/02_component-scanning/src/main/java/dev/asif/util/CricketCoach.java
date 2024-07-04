@@ -1,4 +1,4 @@
-package dev.asif.springcoredemo.common;
+package dev.asif.util;
 
 import org.springframework.stereotype.Component;
 
