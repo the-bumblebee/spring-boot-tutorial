@@ -1,8 +1,13 @@
 package dev.asif.springcoredemo.common;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+// By default, the bean scope in Spring is Singleton
+// The @Scope annotation below changes this to Prototype
 @Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class CricketCoach implements Coach {
 
     public CricketCoach() {
