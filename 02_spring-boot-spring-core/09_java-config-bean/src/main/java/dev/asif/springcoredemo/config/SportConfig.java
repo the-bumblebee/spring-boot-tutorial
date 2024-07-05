@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SportConfig {
 
-    // Manually creating and returning a bean
+    // Manually creating and configuring a bean
     // Bean id here is the method name - "swimCoach"
     @Bean
     public Coach swimCoach() {
