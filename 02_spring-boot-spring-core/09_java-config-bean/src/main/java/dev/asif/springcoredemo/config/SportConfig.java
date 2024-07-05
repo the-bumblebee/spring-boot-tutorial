@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class SportConfig {
 
     // Manually creating and configuring a bean
-    // Bean id here is the method name - "swimCoach"
-    @Bean
+    // Bean id, now, is "aquatic"
+    @Bean("aquatic")
     public Coach swimCoach() {
         return new SwimCoach();
     }
