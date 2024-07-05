@@ -11,6 +11,8 @@ public class DemoController {
     //  Define private field for dependency
     private Coach myCoach;
 
+    // Since @Qualifier not mentioned and there are 4 implementations
+    // Spring would throw an error during startup
     @Autowired
     public DemoController(Coach theCoach) {
         myCoach = theCoach;
