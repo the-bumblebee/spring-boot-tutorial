@@ -1,17 +1,28 @@
 package dev.asif.springcoredemo.common;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-// By default, the bean scope in Spring is Singleton
-// The @Scope annotation below changes this to Prototype
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class CricketCoach implements Coach {
 
     public CricketCoach() {
         System.out.println("In constructor: " + getClass().getSimpleName());
+    }
+
+    // Define Init method (Post Constructor)
+    @PostConstruct
+    public void doMyStartupStuff() {
+        System.out.println("In doMyStartupStuff(): " + getClass().getSimpleName());
+    }
+
+    // Define Destroy method (Before Deconstruction)
+    @PreDestroy
+    public void doMyCleanupStuff() {
+        System.out.println("In doMyCleanupStuff(): " + getClass().getSimpleName());
     }
 
     @Override
