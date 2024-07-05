@@ -15,7 +15,7 @@ public class DemoController {
     // @Qualifier used to specify which implementation to inject
     // Bean id - Name of the class, with first letter lower case
     @Autowired
-    public DemoController(@Qualifier("baseballCoach") Coach theCoach) {
+    public DemoController(@Qualifier("cricketCoach") Coach theCoach) {
         myCoach = theCoach;
     }
 
