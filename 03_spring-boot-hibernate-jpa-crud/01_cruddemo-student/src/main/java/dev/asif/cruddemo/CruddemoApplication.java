@@ -20,8 +20,30 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 
 		return runner -> {
-			createStudent(studentDAO);
+			// createStudent(studentDAO);
+
+			createMultipleStudents(studentDAO);
+
 		};
+
+	}
+
+	private void createMultipleStudents(StudentDAO studentDAO) {
+
+		// Create multiple Student objects
+		System.out.println("Creating new Student object...");
+		Student tempStudent1 = new Student("John", "Doe", "johndoe@xyz.com");
+		Student tempStudent2 = new Student("Mary", "Public", "mary@xyz.com");
+		Student tempStudent3 = new Student("Peter", "Parker", "notspiderman@xyz.com");
+
+		// Save the Student objects
+		System.out.println("Saving the Student objects...");
+		studentDAO.save(tempStudent1);
+		studentDAO.save(tempStudent2);
+		studentDAO.save(tempStudent3);
+
+		// ALTER TABLE student_tracker.student AUTO_INCREMENT=3000
+		// The above SQL query is to set the auto increment numbering from 3000
 
 	}
 
