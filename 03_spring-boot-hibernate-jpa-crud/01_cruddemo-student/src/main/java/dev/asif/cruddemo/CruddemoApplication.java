@@ -22,9 +22,34 @@ public class CruddemoApplication {
 		return runner -> {
 			// createStudent(studentDAO);
 
-			createMultipleStudents(studentDAO);
+			// createMultipleStudents(studentDAO);
+
+			readStudent(studentDAO);
 
 		};
+
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		// Create student object
+		System.out.println("Creating new Student object...");
+		Student tempStudent = new Student("Daffy", "Duck", "daffyduck@xyz.com");
+
+		// Save Student object
+		System.out.println("Saving the student...");
+		studentDAO.save(tempStudent);
+
+		// Display id of saved Student
+		int id = tempStudent.getId();
+		System.out.println("Saved Student. Generated id: " + id);
+
+		// Retrieve Student based on the id: primary key
+		System.out.println("Retrieving student with id: " + id);
+		Student myStudent = studentDAO.findById(id);
+
+		// Display Student
+		System.out.println("Found Student: " + myStudent);
 
 	}
 
