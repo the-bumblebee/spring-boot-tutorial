@@ -15,4 +15,6 @@ public interface StudentDAO {
     // Get all Student objects from DB
     List<Student> findAll();
 
+    List<Student> findByLastName(String lastName);
+
 }
