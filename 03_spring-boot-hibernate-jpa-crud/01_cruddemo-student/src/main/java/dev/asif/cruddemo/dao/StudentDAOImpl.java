@@ -2,9 +2,12 @@ package dev.asif.cruddemo.dao;
 
 import dev.asif.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 // Supports component scanning
 // Translates JDBC exceptions
@@ -31,5 +34,16 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student findById(Integer id) {
         return entityManager.find(Student.class, id);
+    }
+
+    @Override
+    public List<Student> findAll() {
+
+        // Create Query
+        // JPQL/HQL - Use JPA entity (class name) instead of the table name
+        TypedQuery<Student> query = entityManager.createQuery("FROM Student", Student.class);
+
+        // Return query results
+        return query.getResultList();
     }
 }
