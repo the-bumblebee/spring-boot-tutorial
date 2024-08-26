@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "employee")
-public class Employee {
+public class  Employee {
 
     // Define fields
     @Id
